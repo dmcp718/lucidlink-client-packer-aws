@@ -56,7 +56,7 @@ This template utilizes Packer to create a custom AMI with all software dependenc
 
    instance_type = "c6a.2xlarge"
 
-   filespace = "filespace-name"
+   filespace = "filespace-domain"
    ```
 6. Run packer build:
    ```sh
