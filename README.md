@@ -25,10 +25,13 @@ This template utilizes Packer to create a custom AMI with all software dependenc
    .
    ├── LICENSE
    ├── README.md
+   ├── bootstrap.sh
    └── packer
       ├── images
+      │   ├── ami_id.txt
+      │   ├── custom-vars.pkrvars.hcl
       │   ├── ll-client.pkr.hcl
-      │   └── variables.auto.pkrvars.hcl
+      │   └── manifest.json
       └── script
          ├── config_vars.txt
          └── ll-client_ami_build_args.sh
@@ -46,10 +49,10 @@ This template utilizes Packer to create a custom AMI with all software dependenc
    sudo chmod +x ll-client_ami_build_args.sh
    ./ll-client_ami_build_args.sh
    ```
-5. Edit packer variables:
+5. To customize the AMI, update the variables in the custom-vars.pkrvars.hcl file:
    ```sh
    cd ../images
-   nano variables.auto.pkrvars.hcl
+   nano custom-vars.pkrvars.hcl
    ```
    ```sh
    region = "us-east-2"
@@ -58,7 +61,8 @@ This template utilizes Packer to create a custom AMI with all software dependenc
 
    filespace = "filespace-domain"
    ```
-6. Run packer build:
+6. Run packer build specifying with the custom variables file:
    ```sh
-   packer build ll-client.pkr.hcl
+   packer build -var-file="custom-vars.pkrvars.hcl" ll-client.pkr.hcl
    ```
+7. After the AMI is created, use the AMI ID to deploy the instance in AWS. Attach the `bootstrap.sh` script to the instance as a user data script to start the LucidLink client service.
