@@ -65,4 +65,4 @@ This template utilizes Packer to create a custom AMI with all software dependenc
    ```sh
    packer build -var-file="custom-vars.pkrvars.hcl" ll-client.pkr.hcl
    ```
-7. After the AMI is created, use the AMI ID to deploy the instance in AWS. Attach the `bootstrap.sh` script to the instance as a user data script to start the LucidLink client service.
+7. After the AMI is created, use the AMI ID to deploy the instance in AWS. Attach the `bootstrap.sh` script to the instance as a user data script to format the `data` disk and start the LucidLink client service.
