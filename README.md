@@ -22,16 +22,16 @@ This template utilizes Packer to create a custom AMI with all software dependenc
    ```
 2. The repo tree structure:
    ```sh
-.
-├── LICENSE
-├── README.md
-└── packer
-    ├── images
-    │   ├── ll-client.pkr.hcl
-    │   └── variables.auto.pkrvars.hcl
-    └── script
-        ├── config_vars.txt
-        └── ll-client_ami_build_args.sh
+   .
+   ├── LICENSE
+   ├── README.md
+   └── packer
+      ├── images
+      │   ├── ll-client.pkr.hcl
+      │   └── variables.auto.pkrvars.hcl
+      └── script
+         ├── config_vars.txt
+         └── ll-client_ami_build_args.sh
    ```
 3. Edit the packer/script/config_vars.text file:
    ```
