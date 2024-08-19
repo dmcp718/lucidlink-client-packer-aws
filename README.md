@@ -36,7 +36,7 @@ This template utilizes Packer to create a custom AMI with all software dependenc
          ├── config_vars.txt
          └── ll-client_ami_build_args.sh
    ```
-3. Edit the packer/script/config_vars.text file:
+3. Edit the packer/script/config_vars.text file. The plain text password value is encoded to base64 for transfer to the EC2 instance during the build process, where it is encrypted using `systemd-creds`. The temp base64 password file is then shredded using `shred`:
    ```
    FILESPACE1="filespace.domain"
    FSUSER1="username"
