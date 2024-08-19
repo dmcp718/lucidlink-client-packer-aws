@@ -1,0 +1,5 @@
+
+FILESPACE1="filespace.domain"
+FSUSER1="username"
+LLPASSWD1="password"
+ROOTPOINT1="/"
